@@ -9,5 +9,5 @@ steps:
     command: 'drush --root="/var/www/html" fra -y'
   - name: Clear cache
     command: 'drush --root="/var/www/html" cc all -y'
-  - name: Run behat tests
+  - name: Run behat test
     command: 'cd /var/www/html/profiles/bear/tests ; composer install ; ./bin/behat --profile probo --tags "~@javascript"'
