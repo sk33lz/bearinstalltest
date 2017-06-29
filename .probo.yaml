@@ -1,14 +1,7 @@
 image: proboci/ubuntu-14.04-lamp:nightly
 steps:
-  - name: Run the profile build script.
-    command: './$SRC_DIR/.probo-profile-build.sh'
-  - name: Run install.
-    command: "drush site-install --root=/var/www/html bear --db-url='mysqli://root:strongpassword@localhost/bear'"
-  - name: Set file directory permissions
-    command: 'chown -R www-data:www-data /var/www/html/sites/default/files'
-  - name: Revert all features.
-    command: 'drush --root="/var/www/html" fra -y'
-  - name: Clear caches.
-    command: 'drush --root="/var/www/html" cc all -y'
-  - name: Run behat tests dude.
-    command: 'cd /var/www/html/profiles/bear/tests ; composer install ; ./bin/behat --profile probo --tags "~@javascript"'
+  - name: Run behat tests
+    plugin: Shell
+    command: 'cd tests ; composer install ; bin/behat'
+  - name: Another example test with default Shell plugin
+    command: 'echo "Hello World!"'
