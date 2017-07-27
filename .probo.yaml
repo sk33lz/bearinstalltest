@@ -1,6 +1,6 @@
 image: proboci/ubuntu-14.04-lamp:nightly
 steps:
-  - name: Update composer
+  - name: Update composer.
     command: '/usr/local/bin/composer self-update'
   - name: Add Drupal package repository for Drupal 8.
     command: 'composer config -d /src/docroot/ repositories.drupal composer https://packages.drupal.org/8'
